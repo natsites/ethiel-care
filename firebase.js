@@ -218,17 +218,14 @@ if (quoteForm) {
 
         try {
 
-            //====================================
-            // SAVE TO FIREBASE
-            //====================================
-
-            await addDoc(
-                collection(db, "quotes"),
-                {
-                    ...quoteData,
-                    created: serverTimestamp()
-                }
-            );
+           / / Save to Firebase
+    await addDoc(
+        collection(db, "quotes"),
+        {
+            ...quoteData,
+            created: serverTimestamp()
+        }
+    );
 
             //====================================
             // CREATE WHATSAPP MESSAGE
@@ -263,7 +260,7 @@ ${quoteData.notes}`;
                 "https://wa.me/27615831503?text=" +
                 encodeURIComponent(message);
 
-            window.open(whatsapp, "_blank");
+            window.location.href = whatsapp;
 
             alert("Thank you! WhatsApp is opening with your quote request.");
 
